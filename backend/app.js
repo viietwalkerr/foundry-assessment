@@ -13,7 +13,7 @@ registerEmployeeRoutes(app)
 registerClientRoutes(app)
 registerEngagementRoutes(app)
 
-const port = process.env.API_PORT || 3000
+const port = process.env.API_PORT || 3001
 
 app.listen((port), () => {
   console.log('app is running on localhost:', port)
