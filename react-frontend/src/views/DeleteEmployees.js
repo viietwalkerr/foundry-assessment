@@ -28,7 +28,7 @@ function DeleteEmployees(props) {
 
     return (
         <div>
-            <div className="formbox">
+            <div className="formBox">
                 <h5>Delete Employee </h5>
                 <form>
                     {!props.id ?  
@@ -41,7 +41,7 @@ function DeleteEmployees(props) {
                     > 
                     </input>
                     : <></>}
-                    <button type="submit" onClick={() => {deleteEmp(id)}}>Delete</button>
+                    <button type="submit" className="rainbowButton" onClick={() => {deleteEmp(id)}}><span>Delete</span></button>
                 </form>
             </div>
         </div>

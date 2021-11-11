@@ -1,30 +1,29 @@
+import react, { useState, useEffect } from 'react';
 import axios from 'axios';
-import React, { useState } from 'react';
 
-function CreateNewEmployee() {
-
-    const [name, setName] = useState();
+function AddClient() {
+    
+    const [name, setName] =  useState();
 
     const submit = () => {
         const data = {name: name};
-        axios.post("http://localhost:3001/employees", data)
+        axios.post("http://localhost:3001/clients", data)
         .then((response) => {
-            console.log(response.data);
-            if (response.data.error){
+            if (response.data.error) {
                 console.log(response.data.error);
             } else {
-                console.log("Success!");
-
+                console.log(response);
+                console.log("Added Client " + name);
             }
+            
         })
-    
     }
 
     return (
         <div>
             <div className="formBox">
                 <div className="page-heading">
-                <h5>Add New Employee</h5>
+                    <h5>Add New Client</h5>
                 </div>
 
                 <form>
@@ -34,11 +33,11 @@ function CreateNewEmployee() {
                         onChange={(event) => {
                             setName(event.target.value)
                         }}
-                        >
+                    >
                     </input>
                     <button type="submit" className="rainbowButton" onClick={submit}>
                         <span>
-                            Add Employee
+                            Add Client
                         </span>
                     </button>
                 </form>
@@ -47,4 +46,4 @@ function CreateNewEmployee() {
     )
 }
 
-export default CreateNewEmployee
+export default AddClient

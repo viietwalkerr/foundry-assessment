@@ -28,7 +28,7 @@
 
 .App-header {
   margin: 0;
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -91,6 +91,7 @@ body {
 }
 
 .page-heading {
+  color: #3d3d3d;
   margin-top: 4vh;
   padding-top: 5vh;
   padding-bottom: 4vh;
@@ -98,7 +99,9 @@ body {
 
 .page-content {
   margin-top: 2vh;
+  margin-bottom: 2vh;
   padding-top: 3vh;
+
 }
 
 .tab-list {
@@ -111,11 +114,22 @@ body {
 .tab-list table {
   border: 1px solid black;
   width: 40em;
+  border-collapse: collapse;
 }
 
-.tab-list th, tr, td {
-  border: 1px solid black;
-  background-color: grey;
+.tab-list thead th {
+  background-color: black;
+  height: 10px;
+  padding: 5px;
+  text-align: center;
+  color: white;
+}
+
+.tab-list th, td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  background-color: #d1d1d1;
+  color: #3d3d3d;
 }
 
 .tab-list td {
@@ -127,13 +141,19 @@ body {
   color: aqua;
 }
 
+.tab-list tr:nth-child(even) td {
+  background-color: white;
+}
+
 .tab-list h5 {
   color: blue;
 }
 
 .formBox {
+  margin-top: 5vh;
   width: 100%;
   flex-direction: column;
+  color: #3d3d3d;
 }
 
 .formBox form {
@@ -151,9 +171,118 @@ form input {
   margin-right: auto;
   display: block;
   width: 20em;
-  
+  height: 2em;
+  background-color: #d1d1d1;
+  padding-left: 5px;
 }
 
 .transparent {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.rainbowButton {
+  position: relative;
+  display: inline-block;
+  width: 160px;
+  height: 60px;
+  line-height: 60px;
+  background: #000; 
+  text-transform: uppercase;
+  font-size: 20px;
+  /* letter-spacing: 4px; */
+  border: none;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+    
+
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+
+}
+
+.rainbowButton::before {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #fb0094, #00f, #0f0, 
+    #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+    background-size: 400%;
+    opacity: 0;
+    transition: 0.5s;
+    animation: animate 20s linear infinite;
+
+  }
+
+  .rainbowButton::after {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #fb0094, #00f, #0f0, 
+    #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+    background-size: 400%;
+    opacity: 0;
+    filter: blur(20px);
+    transition: 0.5s;
+    animation: animate 20s linear infinite;
+    
+}
+
+.rainbowButton:hover::before,
+.rainbowButton:hover::after
+{
+    opacity: 1;
+}
+@keyframes animate
+{
+    0%
+    {
+        background-position: 0 0;
+    }
+    50%
+    {
+        background-position: 300% 0;
+    }
+    100%
+    {
+        background-position: 0 0;
+    }
+}
+
+
+.rainbowButton span
+{
+  position: absolute;
+  display: block;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  text-align: center;
+  background: #0c0c0c; 
+  color: rgba(255, 255, 255, 0.2);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.rainbowButton:hover span
+{
+  color: rgba(255, 255, 255, 1);
+}
+
+.rainbowButton span::before
+{
+    content: '';
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(255, 255, 255, 0.1);
 }

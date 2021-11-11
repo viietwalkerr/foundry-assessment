@@ -11,7 +11,8 @@ import Employee from './views/Employee';
 
 import Engagements from './views/Engagements';
 
-import Clients from './views/Clients';
+import AllClients from './views/AllClients';
+import Client from './views/Client';
 
 
 
@@ -31,7 +32,8 @@ function App() {
             <Route path="/delete-employee" element={<DeleteEmployees />} />
             <Route path="/employee/:id" element={<Employee />} />
             <Route path="/all-engagements" element={<Engagements />} />
-            <Route path="/clients" element={<Clients />} />
+            <Route path="/all-clients" element={<AllClients />} />
+            <Route path="/client/:id" element={<Client />} />
           </Routes>
         </BrowserRouter>
       </header>

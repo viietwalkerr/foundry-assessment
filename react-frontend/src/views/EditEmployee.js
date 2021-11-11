@@ -81,7 +81,7 @@ function EditEmployee(props) {
                             setName(event.target.value)
                         }}>
                     </input>
-                    <button type="submit" onClick={change}>Change Name</button>
+                    <button type="submit" className="rainbowButton" onClick={change}><span>Change Name</span></button>
                 </form>
             </div>
         </div>

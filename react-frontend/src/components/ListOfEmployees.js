@@ -78,7 +78,11 @@ function ListOfEmployees() {
                 <div className="page-heading">    
                     <h5> Sort Employees </h5>
                 </div>
-                <button onClick={sort}>Sort by Name</button>
+                <button className="rainbowButton" onClick={sort}>
+                    <span>
+                        Sort by Name
+                    </span>
+                </button>
 
                 <CreateNewEmployee />
             </div>

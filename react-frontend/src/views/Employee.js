@@ -35,8 +35,11 @@ function Employee() {
     
     return (
         <div>
+            <div className="page-heading">
             <h2>Employee</h2>
-            <div className="emp-list">
+            </div>
+            <div className="page-content">
+            <div className="tab-list">
             <table>
                 <thead>    
                     <tr>
@@ -55,6 +58,7 @@ function Employee() {
 
             <EditEmployee id={id}/>
             <DeleteEmployees id={id} />
+            </div>
         </div>
     )
 }
