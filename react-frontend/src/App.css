@@ -61,6 +61,7 @@ body {
   display: flex;
   height: 60px;
   width: 100vw;
+  padding-left: 20px;
 }
 
 .navItems {
@@ -101,20 +102,27 @@ body {
   margin-top: 2vh;
   margin-bottom: 2vh;
   padding-top: 3vh;
+  padding-bottom: 10vh;
+  align-items: center;
+  justify-content: center;
 
 }
 
 .tab-list {
-  font-size: 1rem;
-  width: 80%;
+  font-size: 0.8rem;
+  width: 90%;
+  margin: auto;
   align-items: flex-start;
   padding: 3vh;
+  overflow-x: auto;
 }
 
 .tab-list table {
   border: 1px solid black;
-  width: 40em;
+  width: 80vw;
   border-collapse: collapse;
+  border-spacing: 0;
+
 }
 
 .tab-list thead th {
@@ -130,10 +138,11 @@ body {
   text-align: left;
   background-color: #d1d1d1;
   color: #3d3d3d;
+  
 }
 
 .tab-list td {
-  width: 50%;
+  width: 30%;
   padding: 5px;
 }
 

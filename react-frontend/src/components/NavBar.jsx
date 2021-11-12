@@ -9,7 +9,7 @@ function NavBar() {
                 <NavLink to="/home">Home</NavLink>
                 <NavLink to="/all-employees">Employees</NavLink>
                 <NavLink to="/all-clients">Clients</NavLink>
-                <NavLink to="/engagements">Engagements</NavLink>
+                <NavLink to="/all-engagements">Engagements</NavLink>
             </div>
         </div>
     )

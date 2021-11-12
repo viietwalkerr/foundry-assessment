@@ -10,6 +10,9 @@ import AddClient from '../components/AddClient';
 function Clients() {
 
     const [listOfClients, setListOfClients] = useState([]);
+    const [sorted, setSorted] = useState(false);
+
+    const [sortedField, setSortedField] = useState(null);
 
     let navigate = useNavigate();
 
@@ -25,6 +28,27 @@ function Clients() {
         })
     }, [])
 
+    const sort = () => {
+        listOfClients.sort(function(a, b) {
+            var clientA = a.name.toUpperCase();
+            var clientB = b.name.toUpperCase();
+            return (clientA < clientB) ? -1 : (clientA > clientB) ? 1 : 0;
+        });
+        setListOfClients(listOfClients);
+    }
+
+    if (sortedField !== null){
+        listOfClients.sort((a, b) => {
+            if (a[sortedField] < b[sortedField]){
+                return -1;
+            }
+            if (a[sortedField] > b[sortedField]){
+                return 1;
+            }
+            return 0;
+        });
+    }
+
     return (
         <div>
             <div className="page-heading">
@@ -35,8 +59,8 @@ function Clients() {
                     <table>
                         <thead>
                             <tr>
-                                <th>ID: </th>
-                                <th>Name: </th>
+                                <th onClick={() => setSortedField('id')}>ID: </th>
+                                <th onClick={() => setSortedField('name')}>Name: </th>
                             </tr>
                         </thead>
                         <tbody>
