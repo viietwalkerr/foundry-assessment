@@ -5,7 +5,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 
 import EditEmployee from './EditEmployee';
 import DeleteEmployees from './DeleteEmployees';
-import ListOfEmployees from '../components/ListOfEmployees';
+import EngagementsProfile from '../components/EngagementsProfile';
+
 
 function Employee() {
 
@@ -31,12 +32,12 @@ function Employee() {
 
             
         })
-    }, []);
+    }, [id, navigate]);
     
     return (
         <div>
             <div className="page-heading">
-            <h2>Employee</h2>
+            <h5>Employee</h5>
             </div>
             <div className="page-content">
             <div className="tab-list">
@@ -55,7 +56,7 @@ function Employee() {
                 </tbody>
             </table>
             </div>
-
+            <EngagementsProfile id={id} type="employee" />
             <EditEmployee id={id}/>
             <DeleteEmployees id={id} />
             </div>

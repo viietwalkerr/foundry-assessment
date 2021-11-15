@@ -12,7 +12,7 @@ function EditClient(props) {
         } else {
             setId(props.id);
         }
-    }, []);
+    }, [props]);
 
     const change = () => {
         const data = {name: name}

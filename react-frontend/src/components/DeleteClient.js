@@ -12,7 +12,7 @@ function DeleteClient(props) {
             console.log("Props Found!");
             setId(props.id);
         }
-    }, []);
+    }, [props]);
 
     const deleteClient = (id) => {
         axios.delete(`http://localhost:3001/clients/${id}`)
@@ -28,22 +28,23 @@ function DeleteClient(props) {
 
     return (
         <div>
-           <div className="formBox">
-                <h5>Delete Client</h5>
-                <form>
-                    {!props.id ?
-                        <input
-                            type="text"
-                            placeholder="Client ID"
-                            onChange={(e) => {
-                                setId(e.target.value)
-                            }}
-                        >
-                        </input>
-                    : <></>}
-                    <button type="submit" className="rainbowButton" onClick={() => {deleteClient(id)}}><span>Delete Client</span></button>
-
-                </form>
+            <div className="page-content sub-content">
+                <div className="formBox">
+                    <h5>Delete Client</h5>
+                    <form>
+                        {!props.id ?
+                            <input
+                                type="text"
+                                placeholder="Client ID"
+                                onChange={(e) => {
+                                    setId(e.target.value)
+                                }}
+                            >
+                            </input>
+                        : <></>}
+                        <button type="submit" className="rainbowButton" onClick={() => {deleteClient(id)}}><span>Delete Client</span></button>
+                    </form>
+                </div>
             </div> 
         </div>
     )

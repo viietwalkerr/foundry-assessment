@@ -1,10 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 import CreateNewEmployee from '../views/CreateNewEmployee';
-import DeleteEmployees from '../views/DeleteEmployees';
-import EditEmployee from '../views/EditEmployee';
 
 function ListOfEmployees() {
 
@@ -128,7 +126,7 @@ function ListOfEmployees() {
                 <div className="tab-list">
                         <table id="tableData" >
                             <thead>
-                                {sorted == false ? 
+                                {sorted === false ? 
                             <tr>
                                 <th onClick={() => setSortedField('id')}>ID:</th>
                                 <th onClick={() => setSortedField('name')}>Name:</th>
@@ -144,7 +142,7 @@ function ListOfEmployees() {
                             {listOfEmployees.map((value, key) => {
                                 return (
                                     <tr key={key} onClick={() => {navigate(`/employee/${value.id}`)}}>
-                                        {sorted == false ? <>  
+                                        {sorted === false ? <>  
                                             <td>
                                                 {value.id}
                                             </td>

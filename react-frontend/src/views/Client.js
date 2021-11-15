@@ -1,9 +1,10 @@
-import react, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import EditClient from '../components/EditClient';
 import DeleteClient from '../components/DeleteClient';
+import EngagementsProfile from '../components/EngagementsProfile';
 
 function Client() {
 
@@ -22,7 +23,7 @@ function Client() {
                 setClient(response.data);
             }
         })
-    }, [])
+    }, [id, navigate])
 
     return (
         <div>
@@ -34,8 +35,8 @@ function Client() {
                     <table>
                         <thead>
                             <tr>
-                                <th>ID: </th>
-                                <th>Name: </th>
+                                <th>Client ID</th>
+                                <th>Name</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +48,7 @@ function Client() {
                     </table>
                     
                 </div>
+                <EngagementsProfile id={id} type="client"/>
                 <EditClient id={id} />
                 <DeleteClient id={id} />
             </div>

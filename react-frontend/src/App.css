@@ -108,6 +108,10 @@ body {
 
 }
 
+.sub-content { 
+  margin-top: 12vh;
+}
+
 .tab-list {
   font-size: 0.8rem;
   width: 90%;
@@ -192,7 +196,7 @@ form input {
 .rainbowButton {
   position: relative;
   display: inline-block;
-  width: 160px;
+  width: 120px;
   height: 60px;
   line-height: 60px;
   background: #000; 

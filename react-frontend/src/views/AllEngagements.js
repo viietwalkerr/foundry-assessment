@@ -1,5 +1,6 @@
-import react, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router';
 
 import AddEngagement from '../components/AddEngagement';
 
@@ -8,6 +9,8 @@ function AllEngagements() {
     const [listOfEngagements, setListOfEngagements] = useState([]);
 
     const [sortedField, setSortedField] = useState(null);
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:3001/engagements")
@@ -35,33 +38,33 @@ function AllEngagements() {
     return (
         <div>
             <div className="page-heading">
-                <h5>Engagements</h5>
+                <h2>Engagements</h2>
             </div>
             <div className="page-content">
                 <div className="tab-list">
                     <table>
                         <thead>
                             <tr>
-                                <th onClick={() => setSortedField('id')}>id</th>
-                                <th onClick={() => setSortedField('name')}>name</th>
-                                <th onClick={() => setSortedField('client')}>client</th>
-                                <th onClick={() => setSortedField('employee')}>employee</th>
-                                <th onClick={() => setSortedField('started')}>started</th>
-                                <th onClick={() => setSortedField('description')}>description</th>
-                                <th onClick={() => setSortedField('')}>ended</th>
+                                <th onClick={() => setSortedField('id')}>ID</th>
+                                <th onClick={() => setSortedField('name')}>Name</th>
+                                <th onClick={() => setSortedField('client')}>Client ID</th>
+                                <th onClick={() => setSortedField('employee')}>Employee ID</th>
+                                <th onClick={() => setSortedField('started')}>Started</th>
+                                <th onClick={() => setSortedField('description')}>Description</th>
+                                <th onClick={() => setSortedField('ended')}>Ended</th>
                             </tr>
                         </thead>
                         <tbody>
                             {listOfEngagements.map((value, key) => {
                                 return (
                                     <tr key={key}>
-                                        <td>{value.id}</td>
-                                        <td>{value.name}</td>
-                                        <td>{value.client}</td>
-                                        <td>{value.employee}</td>
+                                        <td onClick={() => {navigate(`/engagement/${value.id}`)}}>{value.id}</td>
+                                        <td onClick={() => {navigate(`/engagement/${value.id}`)}}>{value.name}</td>
+                                        <td onClick={() => {navigate(`/client/${value.client}`)}}>{value.client}</td>
+                                        <td onClick={() => {navigate(`/employee/${value.employee}`)}}>{value.employee}</td>
                                         <td>{value.started}</td>
                                         <td>{value.description}</td>
-                                        <td></td>
+                                        <td>{value.ended}</td>
                                     </tr>
                                 )
                             })}

@@ -12,7 +12,7 @@ function DeleteEmployees(props) {
             console.log("Props Found!");
             setId(props.id);
         }
-    })
+    }, [props])
 
     const deleteEmp = (id) => {
         axios.delete(`http://localhost:3001/employees/${id}`)
@@ -28,21 +28,23 @@ function DeleteEmployees(props) {
 
     return (
         <div>
-            <div className="formBox">
-                <h5>Delete Employee </h5>
-                <form>
-                    {!props.id ?  
-                    <input
-                        type="text"
-                        placeholder="User ID"
-                        onChange={(event) => {
-                            setId(event.target.value)
-                        }}
-                    > 
-                    </input>
-                    : <></>}
-                    <button type="submit" className="rainbowButton" onClick={() => {deleteEmp(id)}}><span>Delete</span></button>
-                </form>
+            <div className="page-content sub-content">
+                <div className="formBox">
+                    <h5>Delete Employee </h5>
+                    <form>
+                        {!props.id ?  
+                        <input
+                            type="text"
+                            placeholder="User ID"
+                            onChange={(event) => {
+                                setId(event.target.value)
+                            }}
+                        > 
+                        </input>
+                        : <></>}
+                        <button type="submit" className="rainbowButton" onClick={() => {deleteEmp(id)}}><span>Delete</span></button>
+                    </form>
+                </div>
             </div>
         </div>
     )
